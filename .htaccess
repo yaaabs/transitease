@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+Options +FollowSymLinks
+RewriteEngine On
+
+# Allow direct access to files in ggwpp/v1/ directory
+RewriteCond %{REQUEST_URI} ^/ggwpp/v1/ [NC]
+RewriteRule ^ - [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.*)$ /public/$1 
+RewriteRule ^(/)?$ public/index.php [L] 
+</IfModule>
