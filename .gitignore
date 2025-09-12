@@ -5,9 +5,16 @@
 /public/storage
 /storage/*.key
 /vendor
+# Environment files - NEVER commit these!
 .env
+.env.*
 .env.backup
 .env.production
+.env.local
+.env.staging
+.env.testing
+.env.railway
+*.env
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
