@@ -1901,22 +1901,56 @@ $(document).ready(function() {
             // Store dismissal in localStorage
             localStorage.setItem('ad_dismissed_' + adId, Date.now().toString());
             
-            // Find and remove the ad with smooth animation
-            const adElement = document.querySelector('[data-ad-id="' + adId + '"]');
-            if (adElement) {
-                const container = adElement.closest('.ad-container');
-                if (container) {
-                    container.style.transition = 'opacity 0.3s ease, max-height 0.3s ease';
-                    container.style.opacity = '0';
-                    container.style.maxHeight = '0';
-                    container.style.overflow = 'hidden';
-                    container.style.margin = '0';
-                    container.style.padding = '0';
+            // Find the ad container using the data-ad-id attribute
+            const adContainer = document.querySelector('[data-ad-id="' + adId + '"]');
+            if (!adContainer) return;
+
+            // Special handling for sidebar ads
+            if (adId.startsWith('sidebar-')) {
+                // For sidebar ads, just hide them with animation
+                adContainer.style.transition = 'opacity 0.3s ease';
+                adContainer.style.opacity = '0';
+                adContainer.style.pointerEvents = 'none';
+                
+                // After animation, set display to none
+                setTimeout(() => {
+                    adContainer.style.display = 'none';
+                }, 300);
+                return;
+            }
+            
+            // Special handling for content ads
+            if (adId.startsWith('content-')) {
+                // Find the ad wrapper inside the container
+                const adWrapper = adContainer.querySelector('.content-ad-wrapper');
+                if (adWrapper) {
+                    // Only hide the content, not the container
+                    adWrapper.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                    adWrapper.style.opacity = '0';
+                    adWrapper.style.transform = 'scale(0.98)';
+                    adWrapper.style.pointerEvents = 'none';
                     
+                    // After animation, hide the content
                     setTimeout(() => {
-                        container.remove();
+                        adWrapper.style.display = 'none';
                     }, 300);
                 }
+                return;
+            }
+            
+            // For other ads (like inline ads)
+            const container = adContainer.closest('.ad-container, .inline-ad-container');
+            if (container) {
+                container.style.transition = 'opacity 0.3s ease, max-height 0.3s ease';
+                container.style.opacity = '0';
+                container.style.maxHeight = '0';
+                container.style.overflow = 'hidden';
+                container.style.margin = '0';
+                container.style.padding = '0';
+                
+                setTimeout(() => {
+                    container.remove();
+                }, 300);
             }
         } catch (error) {
             console.warn('Ad dismissal error:', error);
