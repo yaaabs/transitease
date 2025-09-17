@@ -3,6 +3,31 @@
 @section('title', "TransitEase - Home")
 
 @section('content')
+
+<!-- Sticky Sidebar Ad for Desktop -->
+<div class="sidebar-ad-container" data-ad-id="sidebar-1">
+	<div class="sidebar-ad-unit">
+		<div class="sidebar-ad-label">Advertisement</div>
+		<div class="sidebar-ad-content">
+			<div class="sidebar-ad-close" onclick="closeAd('sidebar-1')">×</div>
+			<div class="sidebar-ad-icon">
+				<img src="{{ asset('img/customodoro-icon.png') }}" alt="Customodoro Logo" class="ad-logo-img">
+			</div>
+			<h4 class="sidebar-ad-title">Customodoro</h4>
+			<p class="sidebar-ad-desc">Revolutionary timer: Classic Pomodoro or Reverse Mode where longer work = bigger breaks!</p>
+			<div class="sidebar-ad-features">
+				<div class="sidebar-feature">✓ Classic Pomodoro</div>
+				<div class="sidebar-feature">✓ Reverse Pomodoro</div>
+				<div class="sidebar-feature">✓ 100% Free To Use</div>
+			</div>
+			<a href="https://customodoro.vercel.app/" target="_blank" rel="noopener" class="sidebar-ad-cta">
+				Try Now
+			</a>
+			<div class="sidebar-ad-sponsor">Sponsored</div>
+		</div>
+	</div>
+</div>
+
 <style>
 .why-choose .choose-right{
 	height:100%;
@@ -20,6 +45,766 @@
         background-repeat: no-repeat; /* Prevent the background image from repeating */
         padding: 50px; /* Add some padding to the section */
         color: white; /* Set text color to white for better contrast */
+}
+
+/* Professional AdSense-style Advertisement */
+.ad-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 15px;
+    position: relative;
+}
+
+.ad-label {
+    font-size: 11px;
+    color: #70757a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.ad-unit {
+    background: #ffffff;
+    border: 1px solid #e8eaed;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 1px 6px rgba(32,33,36,.28);
+    transition: box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.ad-unit:hover {
+    box-shadow: 0 2px 12px rgba(32,33,36,.35);
+}
+
+.ad-content-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.ad-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 8px;
+}
+
+.ad-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #4285f4, #34a853);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(66, 133, 244, 0.3);
+}
+
+.ad-badge {
+    background: #34a853;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.ad-text-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.ad-headline {
+    color: #1a73e8;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.ad-headline:hover {
+    text-decoration: underline;
+}
+
+.ad-description {
+    color: #5f6368;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0 0 12px 0;
+}
+
+.ad-features {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.ad-feature {
+    font-size: 12px;
+    color: #34a853;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ad-cta-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.ad-cta-button {
+    background: #1a73e8;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background-color 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.ad-cta-button:hover {
+    background: #1557b0;
+    color: white;
+    text-decoration: none;
+}
+
+.ad-cta-button:active,
+.ad-cta-button:focus {
+    background: #1557b0;
+    color: white !important;
+    text-decoration: none;
+    outline: none;
+}
+
+.ad-cta-button:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.ad-domain {
+    color: #34a853;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.ad-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: #5f6368;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+.ad-close:hover {
+    background: #f1f3f4;
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ad-container {
+        margin: 20px auto;
+        padding: 0 10px;
+    }
+    
+    .ad-unit {
+        padding: 16px;
+    }
+    
+    .ad-content-wrapper {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+    
+    .ad-visual {
+        align-self: center;
+    }
+    
+    .ad-features {
+        justify-content: center;
+    }
+    
+    .ad-cta-section {
+        justify-content: center;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .ad-headline {
+        font-size: 16px;
+    }
+    
+    .ad-description {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ad-unit {
+        padding: 12px;
+    }
+    
+    .ad-headline {
+        font-size: 15px;
+    }
+    
+    .ad-features {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .ad-cta-button {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+}
+
+/* Sticky Sidebar Ad */
+.sidebar-ad-container {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    width: 280px;
+    display: block;
+}
+
+.sidebar-ad-unit {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    border: 1px solid #e1e5e9;
+}
+
+.sidebar-ad-label {
+    background: #f8f9fa;
+    color: #70757a;
+    font-size: 10px;
+    text-align: center;
+    padding: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.sidebar-ad-content {
+    padding: 20px 16px;
+    text-align: center;
+    position: relative;
+}
+
+.sidebar-ad-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #70757a;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-ad-close:hover {
+    background: #f1f3f4;
+}
+
+.sidebar-ad-icon {
+    margin: 0 auto 12px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Logo Image Styling */
+.ad-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding: 2px;
+}
+
+.sidebar-ad-icon .ad-logo-img {
+    width: 48px;
+    height: 48px;
+}
+
+.content-ad-icon .ad-logo-img {
+    width: 40px;
+    height: 40px;
+}
+
+.inline-ad-logo .ad-logo-img {
+    width: 48px;
+    height: 48px;
+}
+
+.sidebar-ad-title {
+    color: #1a73e8;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+}
+
+.sidebar-ad-desc {
+    color: #5f6368;
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0 0 16px 0;
+}
+
+.sidebar-ad-features {
+    margin-bottom: 16px;
+}
+
+.sidebar-feature {
+    font-size: 11px;
+    color: #34a853;
+    margin-bottom: 4px;
+}
+
+.sidebar-ad-cta {
+    background: #1a73e8;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 12px;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-ad-cta:hover {
+    background: #1557b0;
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar-ad-cta:active,
+.sidebar-ad-cta:focus {
+    background: #1557b0;
+    color: white !important;
+    text-decoration: none;
+    outline: none;
+}
+
+.sidebar-ad-cta:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar-ad-sponsor {
+    color: #34a853;
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Content Ad Styles */
+.content-ad-container {
+    margin: 40px 0;
+    padding: 0 15px;
+}
+
+.content-ad-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-ad-label {
+    text-align: center;
+    font-size: 11px;
+    color: #70757a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.content-ad-unit {
+    background: #fff;
+    border: 1px solid #e1e5e9;
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+}
+
+.content-ad-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #70757a;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-ad-close:hover {
+    background: #f1f3f4;
+}
+
+.content-ad-body {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.content-ad-visual {
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.content-ad-badge {
+    background: #34a853;
+    color: white;
+    font-size: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.content-ad-icon {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-ad-text {
+    flex: 1;
+}
+
+.content-ad-headline {
+    color: #1a73e8;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+}
+
+.content-ad-description {
+    color: #5f6368;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+}
+
+.content-ad-benefits {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.benefit-item {
+    font-size: 13px;
+    color: #34a853;
+    font-weight: 500;
+}
+
+.content-ad-action {
+    margin-left: auto;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.content-ad-button {
+    background: #1a73e8;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.content-ad-button:hover {
+    background: #1557b0;
+    color: white;
+    text-decoration: none;
+}
+
+.content-ad-button:active,
+.content-ad-button:focus {
+    background: #1557b0;
+    color: white !important;
+    text-decoration: none;
+    outline: none;
+}
+
+.content-ad-button:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.content-ad-url {
+    color: #34a853;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Inline Ad Styles */
+.inline-ad-container {
+    margin: 50px 0;
+    background: #f8f9fa;
+    padding: 30px 0;
+}
+
+.inline-ad-unit {
+    background: #fff;
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.inline-ad-header {
+    background: #f8f9fa;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.inline-ad-label {
+    font-size: 10px;
+    color: #70757a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.inline-ad-close {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #70757a;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.inline-ad-content {
+    padding: 24px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.inline-ad-left {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex: 1;
+}
+
+.inline-ad-logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inline-ad-title {
+    color: #1a73e8;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+
+.inline-ad-subtitle {
+    color: #5f6368;
+    font-size: 14px;
+    margin: 0 0 8px 0;
+}
+
+.inline-ad-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stars {
+    color: #fbbc04;
+    font-size: 14px;
+}
+
+.rating-text {
+    color: #70757a;
+    font-size: 12px;
+}
+
+.inline-ad-right {
+    flex-shrink: 0;
+    text-align: right;
+}
+
+.inline-ad-features {
+    margin-bottom: 16px;
+}
+
+.feature-highlight {
+    font-size: 12px;
+    color: #34a853;
+    margin-bottom: 4px;
+}
+
+.inline-ad-cta {
+    background: #1a73e8;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    display: inline-block;
+    transition: background-color 0.2s ease;
+}
+
+.inline-ad-cta:hover {
+    background: #1557b0;
+    color: white;
+    text-decoration: none;
+}
+
+.inline-ad-cta:active,
+.inline-ad-cta:focus {
+    background: #1557b0;
+    color: white !important;
+    text-decoration: none;
+    outline: none;
+}
+
+.inline-ad-cta:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.inline-ad-footer {
+    background: #f8f9fa;
+    padding: 8px 16px;
+    border-top: 1px solid #e1e5e9;
+    text-align: center;
+}
+
+.sponsored-label {
+    font-size: 10px;
+    color: #70757a;
+}
+
+/* Responsive Design for New Ads */
+@media (max-width: 1200px) {
+    .sidebar-ad-container {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-ad-body {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .content-ad-action {
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    .inline-ad-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .inline-ad-left {
+        justify-content: center;
+    }
+    
+    .inline-ad-right {
+        text-align: center;
+    }
+    
+    .content-ad-benefits {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-ad-unit,
+    .inline-ad-unit {
+        margin: 0 10px;
+    }
+    
+    .content-ad-headline {
+        font-size: 18px;
+    }
+    
+    .inline-ad-title {
+        font-size: 16px;
+    }
+    
+    .content-ad-benefits {
+        flex-direction: column;
+        gap: 8px;
+    }
 }
 
 </style>
@@ -129,6 +914,44 @@
 			</div>
 		</section>
 		<!--/ End Slider Area -->
+		
+		<!-- Advertisement Section -->
+		<div class="ad-container">
+			<div class="ad-label">Advertisement</div>
+			<div class="ad-unit" data-ad-id="main-content-1">
+				<div class="ad-content-wrapper">
+					<div class="ad-visual">
+						<div class="ad-icon">
+							<img src="{{ asset('img/customodoro-icon.png') }}" alt="Customodoro Logo" class="ad-logo-img">
+						</div>
+						<div class="ad-badge">Sponsored</div>
+					</div>
+					<div class="ad-text-content">
+						<h3 class="ad-headline">Boost Your Productivity with Customodoro</h3>
+						<p class="ad-description">Revolutionary timer with Classic Pomodoro OR Reverse Mode - work as long as you want and earn breaks based on your effort. Perfect for deep work!</p>
+						<div class="ad-features">
+							<span class="ad-feature">✓ Classic 25min Pomodoro</span>
+							<span class="ad-feature">✓ Revolutionary Reverse Mode</span>
+							<span class="ad-feature">✓ Work longer = Bigger breaks</span>
+						</div>
+						<div class="ad-cta-section">
+							<a href="https://customodoro.vercel.app/" target="_blank" rel="noopener" class="ad-cta-button">
+								Try Free Now
+								<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+									<path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</a>
+							<span class="ad-domain">customodoro.vercel.app</span>
+						</div>
+					</div>
+				</div>
+				<button class="ad-close" onclick="closeAd('main-content-1')" aria-label="Close ad">
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+						<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+					</svg>
+				</button>
+			</div>
+		</div>
 		
 		<!-- Start Schedule Area -->
 		<section class="schedule" id="schedule">
@@ -394,6 +1217,42 @@
 		</section>
 		<!--/ End Call to action -->
 		
+		<!-- Content Ad Placement -->
+		<div class="content-ad-container" data-ad-id="content-1">
+			<div class="content-ad-wrapper">
+				<div class="content-ad-label">Advertisement</div>
+				<div class="content-ad-unit">
+					<button class="content-ad-close" onclick="closeAd('content-1')" aria-label="Close ad">×</button>
+					<div class="content-ad-body">
+						<div class="content-ad-visual">
+							<div class="content-ad-badge">Sponsored</div>
+							<div class="content-ad-icon">
+								<img src="{{ asset('img/customodoro-icon.png') }}" alt="Customodoro Logo" class="ad-logo-img">
+							</div>
+						</div>
+						<div class="content-ad-text">
+							<h3 class="content-ad-headline">Transform Your Focus with Customodoro</h3>
+							<p class="content-ad-description">Revolutionary dual-mode timer: Classic Pomodoro for structured work, or Reverse Mode where you work as long as you want and earn breaks based on effort! <b>Customodoro</b> is a powerful and fully customizable Pomodoro timer designed to help <b><i>students, professionals, and creatives</b></i> stay focused and productive.</p>
+							<div class="content-ad-benefits">
+								<span class="benefit-item">🧠 Enhanced Mental Clarity</span>
+								<span class="benefit-item">⚡ 25-Minute Focus Session</span>
+								<span class="benefit-item">🎯 70% Productivity Boost</span>
+								<span class="benefit-item">📚 Master Time Management</span>
+						</div>
+						<div class="content-ad-action">
+							<a href="https://customodoro.vercel.app/" target="_blank" rel="noopener" class="content-ad-button">
+								Try Customodoro
+								<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+									<path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</a>
+							<div class="content-ad-url">customodoro.vercel.app</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<!-- Start portfolio -->
 		<section class="portfolio section" id="install">
 			<div class="container">
@@ -525,6 +1384,44 @@
 			</div>
 		</section>
 		<!--/ End service -->
+		
+		<!-- Inline Ad Block -->
+		<div class="inline-ad-container" data-ad-id="inline-1">
+			<div class="container">
+				<div class="inline-ad-unit">
+					<div class="inline-ad-header">
+						<span class="inline-ad-label">Advertisement</span>
+						<button class="inline-ad-close" onclick="closeAd('inline-1')">×</button>
+					</div>
+					<div class="inline-ad-content">
+						<div class="inline-ad-left">
+							<div class="inline-ad-logo">
+								<img src="{{ asset('img/customodoro-icon.png') }}" alt="Customodoro Logo" class="ad-logo-img">
+							</div>
+							<div class="inline-ad-info">
+								<h4 class="inline-ad-title">Customodoro - Pomodoro Timer</h4>
+								<p class="inline-ad-subtitle">The ultimate customizable Pomodoro timer for focused and productive work.</p>
+								<div class="inline-ad-rating">
+									<span class="stars">★★★★★</span>
+									<span class="rating-text">4.9/5 • 100+ users</span>
+								</div>
+							</div>
+						</div>
+						<div class="inline-ad-right">
+							<div class="inline-ad-features">
+								<div class="feature-highlight">⏰ Classic & Reverse Timer • 🍅 Pomodoro Modes • 💪 Earn Bigger Breaks</div>
+							</div>
+							<a href="https://customodoro.vercel.app/" target="_blank" rel="noopener" class="inline-ad-cta">
+								Start Boosting Now
+							</a>
+						</div>
+					</div>
+					<div class="inline-ad-footer">
+						<span class="sponsored-label">Sponsored • customodoro.vercel.app</span>
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		<!-- Pricing Table -->
 		<section class="pricing-table section" id="tix">
@@ -995,6 +1892,72 @@ $(document).ready(function() {
             'width=1024,height=576,scrollbars=yes,resizable=yes'
         );
     }
+</script>
+
+<script>
+    // Professional Ad Management
+    function closeAd(adId) {
+        try {
+            // Store dismissal in localStorage
+            localStorage.setItem('ad_dismissed_' + adId, Date.now().toString());
+            
+            // Find and remove the ad with smooth animation
+            const adElement = document.querySelector('[data-ad-id="' + adId + '"]');
+            if (adElement) {
+                const container = adElement.closest('.ad-container');
+                if (container) {
+                    container.style.transition = 'opacity 0.3s ease, max-height 0.3s ease';
+                    container.style.opacity = '0';
+                    container.style.maxHeight = '0';
+                    container.style.overflow = 'hidden';
+                    container.style.margin = '0';
+                    container.style.padding = '0';
+                    
+                    setTimeout(() => {
+                        container.remove();
+                    }, 300);
+                }
+            }
+        } catch (error) {
+            console.warn('Ad dismissal error:', error);
+            // Fallback: just hide the ad
+            const adElement = document.querySelector('[data-ad-id="' + adId + '"]');
+            if (adElement) {
+                adElement.closest('.ad-container').style.display = 'none';
+            }
+        }
+    }
+
+    // Check for previously dismissed ads on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('[data-ad-id]').forEach(function(adElement) {
+            const adId = adElement.getAttribute('data-ad-id');
+            const dismissedTime = localStorage.getItem('ad_dismissed_' + adId);
+            
+            if (dismissedTime) {
+                // Check if ad was dismissed within the last 24 hours
+                const dismissedTimestamp = parseInt(dismissedTime);
+                const now = Date.now();
+                const twentyFourHours = 24 * 60 * 60 * 1000;
+                
+                if (now - dismissedTimestamp < twentyFourHours) {
+                    // Hide the ad if dismissed recently
+                    const container = adElement.closest('.ad-container');
+                    if (container) {
+                        container.style.display = 'none';
+                    }
+                }
+            }
+        });
+        
+        // Add click tracking for ad headline
+        document.querySelectorAll('.ad-headline').forEach(function(headline) {
+            headline.addEventListener('click', function() {
+                // Track ad click (you can extend this for analytics)
+                console.log('Ad clicked:', headline.textContent);
+            });
+        });
+    });
 </script>
 
 @endsection
