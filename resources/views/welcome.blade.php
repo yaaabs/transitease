@@ -14,14 +14,14 @@
 				<img src="{{ asset('img/customodoro-icon.png') }}" alt="Customodoro Logo" class="ad-logo-img">
 			</div>
 			<h4 class="sidebar-ad-title">Customodoro</h4>
-			<p class="sidebar-ad-desc">Revolutionary timer: Classic Pomodoro or Reverse Mode where longer work = bigger breaks!</p>
+			<p class="sidebar-ad-desc">Customodoro is a powerful and fully customizable Pomodoro timer designed to help students, professionals, and creatives stay focused and productive.</p>
 			<div class="sidebar-ad-features">
 				<div class="sidebar-feature">✓ Classic Pomodoro</div>
 				<div class="sidebar-feature">✓ Reverse Pomodoro</div>
 				<div class="sidebar-feature">✓ 100% Free To Use</div>
 			</div>
 			<a href="https://customodoro.vercel.app/" target="_blank" rel="noopener" class="sidebar-ad-cta">
-				Try Now
+				Try Customodoro Now
 			</a>
 			<div class="sidebar-ad-sponsor">Sponsored</div>
 		</div>
