@@ -18,8 +18,9 @@ RUN apt-get update && apt-get install -y \
 
 # Ensure Apache uses a single MPM and enable rewrite support
 RUN set -eux; \
-    a2dismod mpm_event || true; \
-    a2enmod mpm_prefork; \
+    rm -f /etc/apache2/mods-enabled/mpm_event.load /etc/apache2/mods-enabled/mpm_event.conf /etc/apache2/mods-enabled/mpm_worker.load /etc/apache2/mods-enabled/mpm_worker.conf; \
+    ln -s /etc/apache2/mods-available/mpm_prefork.load /etc/apache2/mods-enabled/mpm_prefork.load; \
+    ln -s /etc/apache2/mods-available/mpm_prefork.conf /etc/apache2/mods-enabled/mpm_prefork.conf; \
     a2enmod rewrite
 
 # Copy project files
@@ -47,6 +48,13 @@ RUN php artisan key:generate
 # Set Apache document root to /public
 COPY ./render.apache.conf /etc/apache2/sites-available/000-default.conf
 RUN a2ensite 000-default.conf
+
+# Make Apache startup deterministic on Railway by forcing a single MPM before launching
+RUN printf '%s
+' '#!/bin/bash' 'set -e' 'rm -f /etc/apache2/mods-enabled/mpm_event.load /etc/apache2/mods-enabled/mpm_event.conf /etc/apache2/mods-enabled/mpm_worker.load /etc/apache2/mods-enabled/mpm_worker.conf' 'ln -sf /etc/apache2/mods-available/mpm_prefork.load /etc/apache2/mods-enabled/mpm_prefork.load' 'ln -sf /etc/apache2/mods-available/mpm_prefork.conf /etc/apache2/mods-enabled/mpm_prefork.conf' 'a2enmod rewrite >/dev/null 2>&1 || true' 'exec apache2-foreground' > /usr/local/bin/entrypoint.sh \
+    && chmod +x /usr/local/bin/entrypoint.sh
+
+CMD ["/usr/local/bin/entrypoint.sh"]
 
 # Expose port
 EXPOSE 80
