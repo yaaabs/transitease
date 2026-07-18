@@ -12,7 +12,18 @@ RUN apk add --no-cache \
     oniguruma-dev \
     libxml2-dev \
     libzip-dev \
-    && docker-php-ext-install pdo pdo_mysql zip mbstring exif gd
+    icu-dev \
+    && docker-php-ext-install \
+    pdo \
+    pdo_mysql \
+    zip \
+    mbstring \
+    exif \
+    gd \
+    session \
+    dom \
+    tokenizer \
+    fileinfo
 
 # Set working directory
 WORKDIR /var/www/html
