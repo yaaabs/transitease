@@ -9,7 +9,7 @@ use App\Http\Middleware\NoCache;
 Route::group(['middleware' => [NoCache::class]], function () {
 
     Route::get('/', function () {
-        return view('welcome');
+        return view('coming-soon');
     })->name('home');
 
     Route::get('/another', [AuthManager::class, 'another'])->name('another');
@@ -26,8 +26,13 @@ Route::group(['middleware' => [NoCache::class]], function () {
 
     Route::get('/ts', [AuthManager::class, 'ts'])->name('ts');
 
-    Route::get('/login', [AuthManager::class, 'login'])->name('login');
-    Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
+    Route::get('/login', function () {
+        return view('coming-soon');
+    })->name('login');
+
+    Route::post('/login', function () {
+        return view('coming-soon');
+    })->name('login.post');
 
     Route::get('/register', [AuthManager::class, 'register'])->name('register');
     Route::post('/register', [AuthManager::class, 'registerPost'])->name('register.post');
